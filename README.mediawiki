@@ -13,11 +13,12 @@ Using source code from:
 
  WPF Color Picker
  Ury Jamshy, 2011
- www.codeproject.com/Articles/229442/WPF-Color-Picker-VS2010-Style  
+ http://www.codeproject.com/Articles/229442/WPF-Color-Picker-VS2010-Style  
 
 Noise Tool is a visualizer for the LibNoise library. Noise modules can be created and interconnected with the outputs drawn in bitmap windows. Noise parameters can be changed and the output bitmaps will reflect the new settings.
 
 For more detailed instructions, see the Github wiki page.
+
 For more information on the noise modules, see the libnoise website.
 
 Known problems:
