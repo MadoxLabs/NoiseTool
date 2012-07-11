@@ -7,7 +7,7 @@ MadoxLabs Noise Tool - A GUI for visualizing noise
 
 Using source code from:
 
-LibNoise
+ LibNoise
  Jason Bevin 2007
  http://libnoise.sourceforge.net
 
@@ -21,4 +21,4 @@ For more detailed instructions, see the Github wiki page.
 For more information on the noise modules, see the libnoise website.
 
 Known problems:
-- some WinXP machines may find the app doesn't draw all of its menus correctly. Try making sure you have the latest .Net v4 installed.
+* some WinXP machines may find the app doesn't draw all of its menus correctly. Try making sure you have the latest .Net v4 installed.
