@@ -1,5 +1,14 @@
 MadoxLabs Noise Tool - A GUI for visualizing noise
 
+Noise Tool is a visualizer for the LibNoise library. Noise modules can be created and interconnected with the outputs drawn in bitmap windows. Noise parameters can be changed and the output bitmaps will reflect the new settings.  
+You can get the installer from the downloads page. Running the installer from a checkout of the repository doesn't work for some reason.
+
+For more detailed instructions, see the Github wiki page.  
+For more information on the noise modules, see the libnoise website.
+
+Known problems:
+* some WinXP machines may find the app doesn't draw all of its menus correctly. Try making sure you have the latest .Net v4 installed.
+
  MadoxLabs 2012
  madoxlabs@gmail.com
  http://madox.ca
@@ -14,12 +23,3 @@ Using source code from:
  WPF Color Picker
  Ury Jamshy 2011
  http://www.codeproject.com/Articles/229442/WPF-Color-Picker-VS2010-Style  
-
-Noise Tool is a visualizer for the LibNoise library. Noise modules can be created and interconnected with the outputs drawn in bitmap windows. Noise parameters can be changed and the output bitmaps will reflect the new settings.
-
-For more detailed instructions, see the Github wiki page.
-
-For more information on the noise modules, see the libnoise website.
-
-Known problems:
-* some WinXP machines may find the app doesn't draw all of its menus correctly. Try making sure you have the latest .Net v4 installed.
