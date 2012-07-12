@@ -1,9 +1,11 @@
 MadoxLabs Noise Tool - A GUI for visualizing noise
 
 Noise Tool is a visualizer for the LibNoise library. Noise modules can be created and interconnected with the outputs drawn in bitmap windows. Noise parameters can be changed and the output bitmaps will reflect the new settings.  
+
 You can get the installer from the downloads page. Running the installer from a checkout of the repository doesn't work for some reason.
 
 For more detailed instructions, see the Github wiki page.  
+
 For more information on the noise modules, see the libnoise website.
 
 Known problems:
