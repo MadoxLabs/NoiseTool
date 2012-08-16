@@ -1,0 +1,143 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:NoiseTool" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ColorPicker="clr-namespace:ColorPicker;assembly=ColorPicker" mc:Ignorable="d"
+	x:Class="NoiseTool.MainWindow"
+	x:Name="Window"
+	Title="NoiseTool"
+	Width="640" Height="480" WindowStyle="ThreeDBorderWindow" Background="Black" Foreground="White" MouseMove="Window_MouseMove" MouseLeftButtonDown="Window_MouseLeftButtonDown" Loaded="Window_Loaded" Closed="Window_Closed">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid x:Name="xLogo" Margin="-1,0,190,1" d:IsHidden="True">
+			<StackPanel Margin="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<Image Source="mxl.jpg" Stretch="Fill" Height="181" Width="336" Margin="0,25,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				<Image Height="74" Source="Untitled.jpg" Stretch="Fill" Width="336" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			</StackPanel>
+		</Grid>
+		<Menu Height="24" VerticalAlignment="Top" Background="{x:Null}" Foreground="White">
+			<MenuItem Header="New Generator" Click="MenuItem_Click"/>
+			<MenuItem Header="New In Modifier" Click="MenuItem_Click"/>
+			<MenuItem Header="New Out Modifier" Click="MenuItem_Click" FontFamily="/NoiseTool;component/Fonts/#Segoe UI"/>
+			<MenuItem Header="New Combiner" Click="MenuItem_Click"/>
+		</Menu>
+		<Canvas x:Name="xBoard" Margin="0,28,0,0"/>
+		<Grid x:Name="sidebar" HorizontalAlignment="Right" Width="186">
+			<Rectangle Stroke="Black">
+				<Rectangle.Fill>
+					<SolidColorBrush Color="{DynamicResource SelectColor}"/>
+				</Rectangle.Fill>
+			</Rectangle>
+			<Canvas x:Name="Render_Controls" Margin="1.5,52,1.5,0" Width="183" VerticalAlignment="Top" Height="48">
+				<Button x:Name="xApply" Content="Update" Width="75" Click="xApply_Click" Canvas.Left="53.5" Canvas.Top="23.92" VerticalAlignment="Top"/>
+				<TextBlock x:Name="xRange" TextWrapping="Wrap" Text="TextBlock" Width="170" Canvas.Top="1.88"/>
+			</Canvas>
+			<Grid x:Name="xBoundary" Height="54.1" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="186">
+				<TextBlock TextWrapping="Wrap" Text="Y:" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,66,0"/>
+				<TextBox x:Name="xBoundX" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" Margin="61,0,0,0" Width="36" Text="{Binding X, Mode=TwoWay}"/>
+				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Top"><Run Text="Bounds: X:"/></TextBlock>
+				<TextBox x:Name="xBoundY" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,0,0,0" Width="36" d:LayoutOverrides="VerticalAlignment" Text="{Binding Y, Mode=TwoWay}"/>
+				<TextBlock TextWrapping="Wrap" Text="H:" HorizontalAlignment="Right" Margin="0,27,66,15.16" d:LayoutOverrides="Height"/>
+				<TextBox x:Name="xBoundW" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,27,0,0" Width="36" Text="{Binding W, Mode=TwoWay}"/>
+				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Margin="42,27,0,15.16" d:LayoutOverrides="Height" Text="W:"/>
+				<TextBox x:Name="xBoundH" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,27,0,0" Width="36" Text="{Binding H, Mode=TwoWay}"/>
+			</Grid>
+			<Grid x:Name="Module_Params" Margin="0,103,0,0">
+				<TextBlock TextWrapping="Wrap" Text="Parameters" TextAlignment="Center" Margin="0" VerticalAlignment="Top"/>
+				<ListBox x:Name="xParameters" Background="{x:Null}" BorderBrush="{x:Null}" Width="186" ItemsSource="{Binding}" Foreground="{x:Null}" Margin="0,27,0,87">
+
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Grid Width="180">
+								<VisualStateManager.VisualStateGroups>
+									<VisualStateGroup x:Name="VisualStateGroup">
+										<VisualState x:Name="typein_mode">
+											<Storyboard>
+												<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+													<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+												</ObjectAnimationUsingKeyFrames>
+												<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="slider">
+													<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+												</ObjectAnimationUsingKeyFrames>
+												<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBox">
+													<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+												</ObjectAnimationUsingKeyFrames>
+												<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
+													<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+												</ObjectAnimationUsingKeyFrames>
+												<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock2">
+													<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</VisualState>
+										<VisualState x:Name="slider_mode">
+											<Storyboard>
+												<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBox">
+													<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</VisualState>
+									</VisualStateGroup>
+								</VisualStateManager.VisualStateGroups>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto" MinWidth="58.5"/>
+									<ColumnDefinition Width="Auto" MinWidth="33"/>
+									<ColumnDefinition Width="Auto" MinWidth="288.5"/>
+								</Grid.ColumnDefinitions>
+								<TextBlock x:Name="textBlock3" HorizontalAlignment="Stretch" Margin="0,0,0,4.04" TextWrapping="Wrap" Text="{Binding Name, Mode=OneWay}" Foreground="White" Visibility="Visible" d:LayoutOverrides="Height" />
+								<Grid Margin="0,0,0,4.04" Visibility="{Binding Typeable, Mode=OneWay}">
+									<TextBlock x:Name="textBlock2" HorizontalAlignment="Stretch" Margin="0,0,0,2.04" TextWrapping="Wrap" Foreground="White" d:LayoutOverrides="Height" Visibility="Collapsed" >
+										<i:Interaction.Triggers>
+											<i:EventTrigger EventName="MouseLeftButtonDown">
+												<ei:GoToStateAction x:Name="BecomeSlider" StateName="slider_mode"/>
+											</i:EventTrigger>
+										</i:Interaction.Triggers>
+									</TextBlock>
+									<TextBlock x:Name="textBlock1" HorizontalAlignment="Stretch" Margin="0,0,0,2.04" TextWrapping="Wrap"  d:LayoutOverrides="Height" Foreground="White" >
+										<i:Interaction.Triggers>
+											<i:EventTrigger EventName="MouseLeftButtonDown">
+												<ei:GoToStateAction x:Name="BecomeTypein" StateName="typein_mode"/>
+											</i:EventTrigger>
+										</i:Interaction.Triggers>
+									</TextBlock>
+								</Grid>
+								<TextBlock x:Name="textBlock" HorizontalAlignment="Stretch" Margin="0,0,0,4.04" TextWrapping="Wrap" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  d:LayoutOverrides="Height" Grid.Column="1" Foreground="#FFFDFDFD" TextAlignment="Center" MouseLeftButtonUp="textBlock_MouseLeftButtonUp"/>
+								<Slider x:Name="slider" d:LayoutOverrides="Height" Grid.Column="2" Maximum="{Binding Max, Mode=OneWay}" Minimum="{Binding Min, Mode=OneWay}" Value="{Binding Value, Mode=TwoWay}" SmallChange="{Binding Incr, Mode=OneWay}" LargeChange="{Binding Incr, Mode=OneWay}" HorizontalAlignment="Stretch" Width="Auto" TickPlacement="None" Margin="0,0,199,0"/>
+								<TextBox x:Name="textBox" Margin="0.946,0,0,0.04" TextWrapping="Wrap" Text="{Binding RawValue, Mode=TwoWay}" d:LayoutOverrides="Height" Grid.Column="2" HorizontalAlignment="Stretch" Width="Auto" Visibility="Collapsed"/>
+							</Grid>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				
+				</ListBox>
+				<Grid Margin="0" VerticalAlignment="Bottom" Height="77">
+					<ComboBox x:Name="xGradientPicker" Margin="0,0,0,26" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="Name" SelectionChanged="xGradientPicker_SelectionChanged" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="150" Height="24"/>
+					<TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" Margin="0,3" d:LayoutOverrides="Height" VerticalAlignment="Top"><Run Language="en-ca" Text="Default Gradient"/></TextBlock>
+					<Button x:Name="xEdit" Content="Edit" Width="33.38" HorizontalAlignment="Right" d:LayoutOverrides="Height" Click="xEdit_Click" Margin="0,0,0,27">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<ei:ChangePropertyAction TargetName="gradients" PropertyName="Visibility"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</Button>
+					<Button x:Name="xSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Click="xSave_Click"/>
+					<Button x:Name="xLoad" Content="Load" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Click="xLoad_Click"/>
+				</Grid>
+			</Grid>
+		</Grid>
+		<Grid x:Name="centeringGrid" Margin="8,28,186,8">
+			<Canvas x:Name="gradients" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="319" Height="280" Visibility="Collapsed">
+				<local:Gradients x:Name="xGradient" Height="280" Width="319"/>
+				<Button x:Name="xDone" Content="Done" Width="75" Canvas.Left="130" Canvas.Top="283.04" Click="xDone_Click">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="Click">
+							<ei:ChangePropertyAction PropertyName="Visibility" TargetName="gradients">
+								<ei:ChangePropertyAction.Value>
+									<Visibility>Collapsed</Visibility>
+								</ei:ChangePropertyAction.Value>
+							</ei:ChangePropertyAction>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Button>
+			</Canvas>
+		</Grid>
+	</Grid>
+</Window>

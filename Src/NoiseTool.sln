@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoiseTool", "NoiseTool\NoiseTool.csproj", "{E9A7DD7D-A9B0-44AE-A3E2-6A32FADBFB57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPicker", "ColorPicker\ColorPicker.csproj", "{827F8C33-8118-48C7-AB3C-4864298396AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibNoise", "LibNoise\LibNoise.csproj", "{031C8CFF-F147-44EA-B7E5-0A5644808A7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9A7DD7D-A9B0-44AE-A3E2-6A32FADBFB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A7DD7D-A9B0-44AE-A3E2-6A32FADBFB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A7DD7D-A9B0-44AE-A3E2-6A32FADBFB57}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E9A7DD7D-A9B0-44AE-A3E2-6A32FADBFB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A7DD7D-A9B0-44AE-A3E2-6A32FADBFB57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A7DD7D-A9B0-44AE-A3E2-6A32FADBFB57}.Release|x86.ActiveCfg = Release|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Release|x86.ActiveCfg = Release|Any CPU
+		{031C8CFF-F147-44EA-B7E5-0A5644808A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031C8CFF-F147-44EA-B7E5-0A5644808A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031C8CFF-F147-44EA-B7E5-0A5644808A7E}.Debug|x86.ActiveCfg = Debug|x86
+		{031C8CFF-F147-44EA-B7E5-0A5644808A7E}.Debug|x86.Build.0 = Debug|x86
+		{031C8CFF-F147-44EA-B7E5-0A5644808A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031C8CFF-F147-44EA-B7E5-0A5644808A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031C8CFF-F147-44EA-B7E5-0A5644808A7E}.Release|x86.ActiveCfg = Release|x86
+		{031C8CFF-F147-44EA-B7E5-0A5644808A7E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
