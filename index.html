@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NoiseTool</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+<body class="app">
+
+<div class="controls">
+  <table>
+  <tr><td>Bounds:</td><td>X:</td><td><input id="xbound" size="1" value="0"/></td><td>Y:</td><td><input id="ybound" size="1" value="0"/></td></tr>
+  <tr><td></td><td>W:</td><td><input id="wbound" size="1" value="1"/></td><td>H:</td><td><input id="hbound" size="1" value="1"/></td></tr>
+  </table>
+  <center><button onclick="redraw();">Update</button></center>
+  <hr /><center>
+  <div id="range">Output Range:</div><br />
+
+  Gradient: <select onchange="gradients.setCurrent(this.options[this.selectedIndex].value);" id="gradientlist"></select>
+  <button onclick="gradients.showEditor();">Edit Gradients</button></center>
+  <hr />
+  <center>
+  <button onclick="draw(selected);">Update</button><br />
+  Parameters<br />
+  </center>
+  <div id="params"></div>
+  <hr />
+  <center>
+  Layouts: <select id="layouts"></select><br /><button onclick="layoutLoad();">Load</button><button onclick="layoutDelete();">Delete</button><br /><br />
+  Current Layout: <input id="layoutname" width="5" /><button onclick="layoutSave();">Save</button><button onclick="clearBoard();">Reset</button>
+    </center>
+</div>
+
+
+<div class="btn-group top">
+  <button type="button" class="topmenu btn" onclick="newWindow(1);"><span class="glyphicon glyphicon-unchecked"></span> Generator</button>
+  <button type="button" class="topmenu btn" onclick="newWindow(2);"><span class="glyphicon glyphicon-log-in"></span> New In Modifier</button>
+  <button type="button" class="topmenu btn" onclick="newWindow(3);"><span class="glyphicon glyphicon-log-out"></span> New Out Modifier</button>
+  <button type="button" class="topmenu btn" onclick="newWindow(4);"><span class="glyphicon glyphicon-sound-stereo"></span> New Combiner</button>
+  <button type="button" class="topmenu btn" onclick="window.open('http://madoxlabs.github.io/NoiseTool/Docs/');"><span class="glyphicon glyphicon-question-sign"></span>Help</button>
+</div>
+
+<div id="app"><div id="title" class="centered"><img src="title.png" /></div></div>
+<svg id="mySVG" width="100%" height="100%"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement('style')
+        msViewportStyle.appendChild(document.createTextNode('@-ms-viewport{width:auto!important}'))
+        document.querySelector('head').appendChild(msViewportStyle)
+      }
+    })();
+  </script>
+  <script src="noisetool.js"></script>
+</body>
+
+</html>
+
+
+<!-- TODO
+  
+  detect when to invalidate noise map
+  when doing shadow, redo noise map as needed - like resize, save size, new seed
+  when doing render, reue noise map if no change
+
+  Save module definition to local storage    - need name
+  Load saved state from local storage
+  Delete from local storage
+
+   -->
